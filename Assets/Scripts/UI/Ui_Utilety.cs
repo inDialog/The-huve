@@ -13,15 +13,14 @@ public class Ui_Utilety : MonoBehaviour
 	bool toggle;
 	public bool tagSelectorOn , mapSelectorOn;
 	ActorManager actorManager;
-
-	void Awake()
+    void Awake()
 	{
 		instance = this;
 	}
 
 	void Start()
 	{
-		allGroups = GetComponentsInChildren<ToggleGroup>();
+        allGroups = GetComponentsInChildren<ToggleGroup>();
 		uiLineGenerator = GetComponent<UiLineGenerator2>();
 		actorManager = ActorManager.instance;
 		ActorManager.changeActorAfterEvent += ChargeActor;
@@ -46,8 +45,8 @@ public class Ui_Utilety : MonoBehaviour
 
 		if (!allGroups[2].AnyTogglesOn())
 		{
-			allGroups[4].SetAllTogglesOff();
-			allGroups[5].SetAllTogglesOff();
+			//allGroups[4].SetAllTogglesOff();
+			//allGroups[5].SetAllTogglesOff();
 
 		}
 
@@ -61,13 +60,13 @@ public class Ui_Utilety : MonoBehaviour
 					allGroups[1].SetAllTogglesOff();
 					allGroups[2].SetAllTogglesOff();
 					allGroups[3].SetAllTogglesOff();
-					allGroups[4].SetAllTogglesOff();
-					allGroups[5].SetAllTogglesOff();
+					//allGroups[4].SetAllTogglesOff();
+					//allGroups[5].SetAllTogglesOff();
 					moveType = MoveType.PASSIVE;
 				}
 				if (item.GetActive().name == "M_Ui_dynamic")
 				{
-					allGroups[6].SetAllTogglesOff();
+					//allGroups[6].SetAllTogglesOff();
 				}
 				if (item.GetActive().name == "M_Ui_directional")
 				{
@@ -76,25 +75,27 @@ public class Ui_Utilety : MonoBehaviour
 				if (item.GetActive().name == "M_Ui_Patrol")
 				{
 					allGroups[2].SetAllTogglesOff();
-					allGroups[4].SetAllTogglesOff();
-					allGroups[5].SetAllTogglesOff();
-					allGroups[6].SetAllTogglesOff();
-				}
+					//allGroups[4].SetAllTogglesOff();
+					//allGroups[5].SetAllTogglesOff();
+					//allGroups[6].SetAllTogglesOff();
+                }
 				if (item.GetActive().name == "M_Ui_Random")
 				{
-					allGroups[5].SetAllTogglesOff();
-					allGroups[6].SetAllTogglesOff();
+					//allGroups[5].SetAllTogglesOff();
+					//allGroups[6].SetAllTogglesOff();
 					moveType = MoveType.RANDOM_DIRECTION;
 				}
 				if (item.GetActive().name == "M_Ui_foreword")
 				{
-					allGroups[4].SetAllTogglesOff();
-					allGroups[6].SetAllTogglesOff();
+					//allGroups[4].SetAllTogglesOff();
+					//allGroups[6].SetAllTogglesOff();
 					moveType = MoveType.CONSTANT_FORWARD;
 				}
 				if (item.GetActive().name == "M_Ui_object")
 				{
-					tagSelectorOn = true;
+                    moveType = MoveType.FOLLOW_ACTOR;
+
+                    tagSelectorOn = true;
 				}
 				else
 				{
@@ -113,9 +114,11 @@ public class Ui_Utilety : MonoBehaviour
 		}
 		if (GameServer.instance.Connected())
 			actorManager.actorSelected.moveType = moveType;
+
 		else
 			GameClient.instance.SendMoveType(actorManager.actorSelected, moveType);
-	}
+          
+    }
 
 	public void ChargeActor(Actor actor)
 	{
@@ -143,8 +146,15 @@ public class Ui_Utilety : MonoBehaviour
 			targetName.Add("M_Ui_dynamic");
 			targetName.Add("M_Ui_Patrol");
 			targetName.Add("M_UI_waypoint");
-		}
-		Toggle[] toggles = GetComponentsInChildren<Toggle>();
+		}else
+
+        if (actor.moveType == MoveType.FOLLOW_ACTOR)
+        {
+            targetName.Add("M_Ui_dynamic");
+            targetName.Add("M_Ui_Patrol");
+            targetName.Add("M_Ui_object");
+        }
+            Toggle[] toggles = GetComponentsInChildren<Toggle>();
 		foreach (Toggle item in toggles)
 		{
 			if (targetName.Contains(item.name))

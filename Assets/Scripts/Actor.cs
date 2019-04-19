@@ -35,8 +35,9 @@ public class Actor : MonoBehaviour
 	Vector3 lastPosition;
 	public float syncTime = 2.0f;
 	public List<GameObject> listNodes;
+    public AddObjcetsToList addObjcets;
 
-	void Awake()
+    void Awake()
 	{
 		waypoint = new List<Vector3>();
 		listLastPosition = new List<Vector3>();
@@ -82,7 +83,8 @@ public class Actor : MonoBehaviour
 
 	void MoveProcess()
 	{
-		if (ruleManager.HaveMoveRule(this))
+
+        if (ruleManager.HaveMoveRule(this))
 		{
 			navMeshAgent.updateRotation = false;
 			return ;
@@ -94,21 +96,28 @@ public class Actor : MonoBehaviour
 		}
 		else
 		{
-			if (moveType == MoveType.PATROL_WAYPOINT)
-				MoveToWaypoint();
-			else if (moveType == MoveType.CONSTANT_FORWARD)
-				MoveConstantForward();
-			else if (moveType == MoveType.RANDOM_DIRECTION)
-				MoveRandomDirection();
-			else if (moveType == MoveType.FOLLOW_ACTOR)
-				MoveFollowActor();
-		}
+            if (moveType == MoveType.PATROL_WAYPOINT)
+                MoveToWaypoint();
+            else if (moveType == MoveType.CONSTANT_FORWARD)
+                MoveConstantForward();
+            else if (moveType == MoveType.RANDOM_DIRECTION)
+                MoveRandomDirection();
+            else if (moveType == MoveType.FOLLOW_ACTOR)
+            {
+                actorFollowed = addObjcets.toFallow;
+                MoveFollowActor();
+            }
+            //else
+            //{
+            //    actorFollowed = new Actor();
+            //}
+        }
 	}
 
 	void MoveFollowActor()
 	{
 		if (actorFollowed)
-			navMeshAgent.SetDestination(actorFollowed.transform.position);
+			navMeshAgent.SetDestination(actorFollowed.transform.position + new Vector3(10,0,0) );
 	}
 
 	void MoveRandomDirection()
