@@ -293,6 +293,15 @@ public class GameServer : MonoBehaviour, INetEventListener, INetLogger
             ruleTag = RulePacket.Deserialize(reader);
             RuleManager.instance.DeleteRule(ruleTag.rule, ruleTag.tag);
         }
+        else if (req == "WAYPOINTremove")
+        {
+            Actor actor = actorManager.listActors[reader.GetInt()];
+            Vector3 pos = Vector3Packet.Deserialize(reader);
+            actor.indexWaypoint = 0;
+            actor.waypoint = new List<Vector3>();
+
+
+        }
         reader.Recycle();
     }
 

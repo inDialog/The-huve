@@ -92,6 +92,17 @@ public class GameClient : MonoBehaviour, INetEventListener
         peer.Send(writer, DeliveryMethod.ReliableOrdered);
     }
 
+    public void ClearWayPoint(Actor actor)
+    {
+        NetPeer peer = netClient.FirstPeer;
+        if (peer == null)
+            return;
+        NetDataWriter writer = new NetDataWriter();
+        writer.Put("WAYPOINTremove");
+        writer.Put(actorManager.listActors.IndexOf(actor));
+        peer.Send(writer, DeliveryMethod.ReliableOrdered);
+    }
+
     // public void SendMoveType(Actor actor, MoveType type)
 
     void OnDestroy()

@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 114339313416658464}
   - {fileID: 114039132511626936}
   - {fileID: 114662534623897612}
+  - {fileID: 114492592018094998}
 --- !u!114 &114039132511626936
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -29,7 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -61,25 +62,25 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 36.04
+    value: 1.58
   threshold:
     overrideState: 1
-    value: 0.9
+    value: 0.47
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.64
   clamp:
     overrideState: 1
     value: 65472
   diffusion:
     overrideState: 1
-    value: 7
+    value: 10
   anamorphicRatio:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.0990566, g: 0.8645684, b: 1, a: 1}
+    value: {r: 0.7797704, g: 0.91049826, b: 0.9339623, a: 1}
   fastMode:
     overrideState: 1
     value: 1
@@ -102,13 +103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   mode:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 1
     value: 4
@@ -129,16 +130,53 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 2.56
+    value: 1
   directLightingStrength:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 0
-    value: 0.25
+    overrideState: 1
+    value: 1.88
   quality:
-    overrideState: 0
-    value: 2
+    overrideState: 1
+    value: 3
+--- !u!114 &114492592018094998
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
+  m_Name: AutoExposure
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  filtering:
+    overrideState: 1
+    value: {x: 1.0000019, y: 55.550224}
+  minLuminance:
+    overrideState: 1
+    value: 2.56
+  maxLuminance:
+    overrideState: 1
+    value: 7.3
+  keyValue:
+    overrideState: 1
+    value: 1.35
+  eyeAdaptation:
+    overrideState: 1
+    value: 0
+  speedUp:
+    overrideState: 1
+    value: 3.4
+  speedDown:
+    overrideState: 1
+    value: 1
 --- !u!114 &114662534623897612
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -28,7 +28,7 @@ public class Actor : MonoBehaviour
 	public NavMeshAgent navMeshAgent;
 	public List<Vector3> waypoint;
 	public Actor origin;
-	int indexWaypoint;
+	public int indexWaypoint;
 	RuleManager ruleManager;
 	Vector3 startPosition;
 	List<Vector3> listLastPosition;
@@ -60,7 +60,9 @@ public class Actor : MonoBehaviour
 
 	void Update()
 	{
-		if (!GameServer.instance.Connected())
+        RemoveWayPoints();
+
+        if (!GameServer.instance.Connected())
 		{
 			transform.position = Vector3.Lerp(transform.position, syncPos, Time.deltaTime * syncTime);
 			transform.rotation = Quaternion.Lerp(transform.rotation, syncRot, Time.deltaTime * syncTime);
@@ -150,17 +152,38 @@ public class Actor : MonoBehaviour
 
 	void MoveToWaypoint()
 	{
-		if (waypoint.Count == 0)
+
+        if (waypoint.Count == 0)
 			return ;
-		if (Vector3.Distance(transform.position, waypoint[indexWaypoint]) < 1.5f)
+        //Debug.Log(Vector3.Distance(transform.position, waypoint[indexWaypoint]));
+
+        if (Vector3.Distance(transform.position, waypoint[indexWaypoint]) < 1.6f)
 		{
-			if (waypoint.Count > 1)
-				indexWaypoint = (indexWaypoint + 1) % waypoint.Count;
-			else
-				return ;
+
+            if (waypoint.Count > 1)
+            {
+                indexWaypoint = (indexWaypoint + 1) % waypoint.Count;
+
+            }
+            else
+                return;
 		}
 		navMeshAgent.SetDestination(waypoint[indexWaypoint]);
 	}
+
+    public void RemoveWayPoints()
+    {
+        if (waypoint.Count == 0) return;
+        if (Input.GetKey("g")) {
+            if (GameServer.instance.Connected()) {
+                indexWaypoint = 0;
+                waypoint =  new List<Vector3>();
+                //Debug.Log("game serve");
+            }
+            else
+                GameClient.instance.ClearWayPoint(this);
+        }
+    }
 
 	public bool AddWaypoint()
 	{
@@ -168,7 +191,10 @@ public class Actor : MonoBehaviour
 		Ray ray = CamCustom.instance.camMap.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
 		{
-			if (GameServer.instance.Connected())
+         if (hit.transform.tag != "back") return false;
+
+            if (GameServer.instance.Connected())
+                //Debug.Log("game serve");
 				waypoint.Add(hit.point);
 			else
 				GameClient.instance.SendWayPoint(this, hit.point);

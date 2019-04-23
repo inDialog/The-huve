@@ -76,6 +76,12 @@
     <Compile Include="Assets\Scripts\UI\unity-ui-extensions\Editor\TextPicEditor.cs" />
     <Compile Include="Assets\Scripts\UI\unity-ui-extensions\Editor\uGUITools.cs" />
     <Compile Include="Assets\Scripts\UI\unity-ui-extensions\Editor\UIExtensionsMenuOptions.cs" />
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -85,11 +91,23 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -351,6 +369,9 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>/Users/segalcalin/Documents/GitHub/The-huve/Library/PackageCache/com.unity.render-pipelines.high-definition@4.10.0-preview/Editor/Core/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

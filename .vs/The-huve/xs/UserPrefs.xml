@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{1FA7C3FE-29CE-9B0F-544A-EF636B48F50E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UiManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameServer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameServer.cs" Line="76" Column="23" />
       <File FileName="Assets/Scripts/GameClient.cs" Line="131" Column="10" />
-      <File FileName="Assets/Scripts/RuleManager.cs" Line="93" Column="14" />
-      <File FileName="Assets/Scripts/ActorManager.cs" Line="6" Column="26" />
-      <File FileName="Assets/Scripts/Actor.cs" Line="97" Column="16" />
+      <File FileName="Assets/Scripts/RuleManager.cs" Line="109" Column="80" />
+      <File FileName="Assets/Scripts/ActorManager.cs" Line="71" Column="26" />
+      <File FileName="Assets/Scripts/Actor.cs" Line="158" Column="80" />
       <File FileName="Assets/Scripts/Rule.cs" Line="23" Column="19" />
       <File FileName="Assets/Scripts/UI/UiNode.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/UiNewNode.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/UiLineGenerator2.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Ui_Utilety.cs" Line="4" Column="22" />
-      <File FileName="Assets/AddObjcetsToList.cs" Line="42" Column="51" />
+      <File FileName="Assets/AddObjcetsToList.cs" Line="45" Column="26" />
       <File FileName="Assets/Scripts/NManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/WayPointGraphics.cs" Line="5" Column="30" />
+      <File FileName="Assets/Scripts/CamCustom.cs" Line="60" Column="174" />
+      <File FileName="Assets/Scripts/UI/CameraManager.cs" Line="103" Column="21" />
+      <File FileName="Assets/Scripts/UI/UiManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

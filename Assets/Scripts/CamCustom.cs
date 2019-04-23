@@ -57,8 +57,11 @@ public class CamCustom : MonoBehaviour
 	{
 		if (actorView == null)
 			return ;
-		transform.position = actorView.transform.position;
-		transform.rotation = actorView.transform.rotation;
+        transform.position = new Vector3(actorView.transform.position.x, actorView.transform.position.y, actorView.transform.position.z) + (actorView.transform.forward *2f);
+        //transform.position = actorView.transform.forward;
+
+
+        transform.rotation = actorView.transform.rotation;
 	}
 
 	void FreeCam()

@@ -18,15 +18,24 @@ public class WayPointGraphics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actor.waypoint.Count == 0) return;
-        List<Vector3> line = actor.waypoint;
-        List<Vector3> line2 = new List<Vector3>();
-        lineRenderer.positionCount = actor.waypoint.Count-1;
-        for (int i = 0; i < actor.waypoint.Count; i++)
+        if (actor.waypoint.Count == 0)
         {
-            line2.Add(new Vector3(line[i].x, line[i].y + 1, line[i].z));
+            lineRenderer.SetPositions(new Vector3[0]);
+            lineRenderer.positionCount = 0;
+            return;
         }
-        lineRenderer.SetPositions(line2.ToArray());
+        
+        
+            List<Vector3> line = actor.waypoint;
+            List<Vector3> line2 = new List<Vector3>();
+            lineRenderer.positionCount = actor.waypoint.Count;
+            for (int i = 0; i < actor.waypoint.Count; i++)
+            {
+                line2.Add(new Vector3(line[i].x, line[i].y + 1, line[i].z));
+            }
+            lineRenderer.SetPositions(line2.ToArray());
+        
     }
+
     
 }

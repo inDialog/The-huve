@@ -98,7 +98,8 @@ public class CameraManager : MonoBehaviour
 
                     break;
                 case "First Pearson":
-                    transform.position = curentActor.transform.position;
+                    transform.position = new Vector3(curentActor.transform.position.x, curentActor.transform.position.y, curentActor.transform.position.z) + (curentActor.transform.forward * 2f);
+
                     transform.rotation = curentActor.transform.rotation;
 
                     break;
